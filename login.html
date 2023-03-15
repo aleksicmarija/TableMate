@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login</title>
+    <style>
+      body{
+        font-family: Arial, sans-serif;
+      }
+      /* Center the logo image */
+      .logo {
+        display: block;
+        margin: 0 auto;
+        max-width: 350px;
+      }
+
+      /* Center the login form */
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 50px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      input {
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+
+      button {
+        padding: 10px 20px;
+        border-radius: 20px;
+        background-color: #4CAF50;
+        color: white;
+        font-size: 16px;
+        margin-top: 10px;
+        border: none;
+        cursor: pointer;
+      }
+      
+      h1 {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="myLogo.png" alt="My Logo" class="logo">
+    <form action="explore.html" method="get">
+      <h1>Welcome back!</h1>
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password">
+      <button type="submit" class="btn">Sign in</button>
+    </form>
+  </body>
+</html>
