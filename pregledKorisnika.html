@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Mark Reservations</title>
+	<title>Users</title>
 	<style>
 		body {
 			font-family: Arial, sans-serif;
@@ -55,14 +55,13 @@
 	</style>
 </head>
 <body>
-	<h1>Mark Reservations</h1>
+	<h1>Users</h1>
 	<table>
 		<thead>
 			<tr>
 				<th>Name</th>
 				<th>Last Name</th>
-				<th>Date</th>
-				<th>Time</th>
+                <th>Points</th>
 				<th>Status</th>
 			</tr>
 		</thead>
@@ -70,22 +69,19 @@
 			<tr>
 				<td>Milica</td>
 				<td>Banjac</td>
-				<td>March 20, 2023</td>
-				<td>10:00 AM</td>
+                <td>0</td>
 				<td><button class="check" onclick="markChecked(this)">&#10004;</button><button onclick="removeRow(this)">X</button></td>
 			</tr>
 			<tr>
 				<td>Natalija</td>
 				<td>Bogdanovic</td>
-				<td>March 21, 2023</td>
-				<td>2:00 PM</td>
+                <td>0</td>
 				<td><button class="check" onclick="markChecked(this)">&#10004;</button><button onclick="removeRow(this)">X</button></td>
 			</tr>
 			<tr>
 				<td>Pavle</td>
 				<td>Perovic</td>
-				<td>March 22, 2023</td>
-				<td>11:30 AM</td>
+                <td>0</td>
 				<td><button class="check" onclick="markChecked(this)">&#10004;</button><button onclick="removeRow(this)">X</button></td>
 			</tr>
 		</tbody>
