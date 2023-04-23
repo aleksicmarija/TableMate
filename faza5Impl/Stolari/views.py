@@ -7,13 +7,13 @@ def login(request): #login logika - Pavle Perovic 0594/14
         username = request.POST['username']
         password = request.POST['password']
         if Admin.objects.filter(username=username, password=password).exists():
-            request.session['user_type'] = 'Admin'
+            request.session['username'] = username
             return render(request, 'admin.html')
         elif Menadzer.objects.filter(username=username, password=password).exists():
-            request.session['user_type'] = 'Menadzer'
+            request.session['username'] = username
             return render(request, 'menadzer.html')
         elif Registrovani.objects.filter(username=username, password=password).exists():
-            request.session['user_type'] = 'Registrovani'
+            request.session['username'] = username
             return render(request, 'userIndex.html')
         else:
             poruka = "Pogresan username ili password"
