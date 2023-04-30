@@ -112,6 +112,16 @@ def obrisiKorisnika(request, idrreg): #brisanje korisnika iz baze - Pavle Perovi
     korisnik.delete()
     return redirect('pregledKorisnika')
 
+def obrisiVest(request,idvest):
+    vest = get_object_or_404(Vest,idvest=idvest)
+    vest.delete()
+    return redirect('BrisanjeVesti')
+
+def brisanjeVesti(request):
+    vesti = Vest.objects.all()
+    context = {'vesti': vesti}
+    return render(request, 'BrisanjeVesti.html', context)
+
 def uvecajPoene(request,idrreg):
     korisnik = get_object_or_404(Registrovani,idrreg=idrreg)
     korisnik.pozpoeni += 2

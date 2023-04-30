@@ -34,7 +34,7 @@
 
       button {
         font-size: 20px;
-        font-weight: thin;
+        font-weight: normal;
         color: white;
         background-color: transparent;
         border: 2px solid white;
@@ -81,7 +81,7 @@
 		<div class="button-group">
 			<a href="{% url 'pregledKorisnika' %}"><button class="explore">Pregled korisnika</button></a>
 			<a href="{% url 'formaDodajVesti' %}"><button class="favorites">Dodaj vesti</button></a>
-			<button class="news">Obrisi vesti</button>
+			<a href="{% url 'BrisanjeVesti' %}"><button class="favorites">Obrisi vesti</button></a>
             <a href="{% url 'prikazVesti' %}"><button class="news">Prikazi vesti</button></a>
 			<form action="{% url 'logout' %}" method="post">
 				{% csrf_token %}
