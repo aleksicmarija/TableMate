@@ -33,7 +33,7 @@
       
       button {
         font-size: 20px;
-        font-weight: thin;
+        font-weight: lighter;
         color: white;
         background-color: transparent;
         border: 2px solid white;
@@ -43,12 +43,12 @@
         cursor: pointer;
         transition: background-color 0.3s ease;
       }
-      
+
       button.explore {
         background-color: #408aeb;
         color: white;
       }
-      
+
       button.news {
         background-color: transparent;
         color: white;
@@ -75,21 +75,23 @@
         color: #408aeb;
       }
     </style>
-  </head>
-  <body>
-    <div class="container">
-      <h1>Dobro dosli na Table<span style="color: #408aeb;">Mate</span> aplikaciju</h1>
-      <div>
-        <button class="explore">Explore</button>
-        <button class="news">News</button>
-        <button class="favorites">Favorites</button>
-        <button class="user-profile">User profile</button>
-        <br>
-        <form action="{% url 'logout' %}" method="post">
-            {% csrf_token %}
-            <button type="submit" class="logout">Logout</button>
-        </form>
-      </div>
-    </div>
-  </body>
+</head>
+<body>
+<div class="container">
+<h1>Dobro dosli na Table<span style="color: #408aeb;">Mate</span> aplikaciju</h1>
+<div>
+    <a href="{% url 'prikaziExplore' %}"><button class="explore">Explore</button></a>
+    <button class="news">News</button>
+    <a href="{% url 'prikaziOmiljene' %}"><button class="favorites">Favorites</button></a>
+    <button class="user-profile" onclick="window.location.href='{% url 'user_profile' %}'">User profile</button>
+<br>
+<form action="{% url 'logout' %}" method="post">
+    {% csrf_token %}
+    <button type="submit" class="logout">Logout</button>
+</form>
+</div>
+</div>
+</body>
 </html>
+
+

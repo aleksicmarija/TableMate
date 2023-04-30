@@ -96,6 +96,12 @@
               <li class="nav-item">
                 <a class="nav-link text-info" href="#">News</a>
               </li>
+                <li class="nav-item">
+                <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="logout">Logout</button>
+        </form>
+              </li>
             </ul>
           </div>
         </div>
@@ -106,17 +112,16 @@
         <img src="https://via.placeholder.com/150">
         </div>
         <label>First Name:</label>
-        <input type="text" value="First Name" readonly>
-        <label>Last Name:</label>
-        <input type="text" value="Last Name" readonly>
-        <label>Datum i vreme rodjenja:</label>
-        <input type="datetime-local" value="blabla" readonly>
-        <label>Phone Number:</label>
-        <input type="tel" value="123-456-7890" readonly>
-        <label>Positive Points:</label>
-        <input type="number" value="10" readonly>
-        <label>Negative Points:</label>
-        <input type="number" value="20"readonly>
+<input type="text" value="{{ first_name }}" readonly>
+
+<label>Last Name:</label>
+<input type="text" value="{{ last_name }}" readonly>
+
+<label>Phone Number:</label>
+<input type="tel" value="{{ phone_number }}" readonly>
+
+<label>Points:</label>
+<input type="number" value="{{ points }}" readonly>
         <button>Discount</button>
     </div>
 </body>

@@ -69,7 +69,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'stolaridb',
         'USER': 'root',
-        'PASSWORD': '1234',
+        'PASSWORD': 'Samoja123',
         'HOST': 'localhost',
         'PORT': '3306'
     }
@@ -120,3 +120,4 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
