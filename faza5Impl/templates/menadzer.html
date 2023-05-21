@@ -79,7 +79,7 @@
 	<div class="container">
 		<h1 class="title">Menadzer Dashboard</h1>
 		<div class="button-group">
-<button class="pregledRezervacija" onclick="window.location.href='{% url 'pregledRezervacija' %}'">User profile</button>
+			<a href="{% url 'pregledRezervacijaIIznajmljivanja' %}"><button class="explore">Pregled rezervacija</button></a>
 			<form action="{% url 'logout' %}" method="post">
 				{% csrf_token %}
 				<button type="submit" class="logout">Logout</button>

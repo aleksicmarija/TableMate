@@ -84,7 +84,7 @@ def pregledRezervacija(request):
     context = {
         'rezervacije' : rezervacije
     }
-    return render(request,'pregledRezervacija.html',context)
+    return render(request, 'menadzerPregledRezervacija.html', context)
 def prikaziExplore(request):
     objekti = Objekat.objects.all()
     context = {'objekti': objekti}
@@ -116,6 +116,40 @@ def obrisiVest(request,idvest):
     vest = get_object_or_404(Vest,idvest=idvest)
     vest.delete()
     return redirect('BrisanjeVesti')
+
+def pregledRezervacijaIIznajmljivanja(request): #prikazivanje rezervacija na stranici menadzera
+    username = request.session.get('username')
+    menadzer = get_object_or_404(Menadzer, username=username)
+    objekti = Objekat.objects.filter(idmen=menadzer.idmen)
+    stolovi = Sto.objects.filter(idobj__in=list(objekti.values_list('idobj', flat=True)))
+    sveRezervacije = Rezervacija.objects.filter(idsto__in=list(stolovi.values_list('idsto', flat=True)))
+    unmarkedRezervacije = Rezervacija.objects.filter(status='unmarked')
+    idUnmarked = unmarkedRezervacije.values_list('idrez', flat=True)
+    rezervacije = sveRezervacije.filter(idrez__in=idUnmarked)
+    context = {'rezervacije': rezervacije}
+    return render(request, 'menadzerPregledRezervacija.html', context)
+
+def markirajPozitivno(request, idrreg, idrez): #menadzer markira rezervaciju kao ostvarena
+    korisnik = get_object_or_404(Registrovani, idrreg=idrreg)
+    rezervacija = get_object_or_404(Rezervacija, idrez=idrez)
+    rezervacija.status = 'ostvaren'
+    rezervacija.save()
+    poz = korisnik.pozpoeni
+    poz = poz + 1
+    korisnik.pozpoeni = poz
+    korisnik.save()
+    return redirect('pregledRezervacijaIIznajmljivanja')
+
+def markirajNegativno(request, idrreg, idrez): #menadzer markira rezervaciju kao neostvarenu
+    korisnik = get_object_or_404(Registrovani, idrreg=idrreg)
+    rezervacija = get_object_or_404(Rezervacija, idrez=idrez)
+    rezervacija.status = 'neostvaren'
+    rezervacija.save()
+    neg = korisnik.negpoeni
+    neg = neg + 1
+    korisnik.negpoeni = neg
+    korisnik.save()
+    return redirect('pregledRezervacijaIIznajmljivanja')
 
 def brisanjeVesti(request):
     vesti = Vest.objects.all()

@@ -55,4 +55,9 @@ urlpatterns = [
     path('prikaziOmiljene/', Stolari.views.prikaziOmiljene, name='prikaziOmiljene'),
     path('prikaziExplore/prikaziStranicuObjekta/<int:idobj>/oceni_objekat/', Stolari.views.oceni_objekat,
          name='oceni_objekat'),
+    path('markirajPozitivno/<int:idrreg>/<int:idrez>/', Stolari.views.markirajPozitivno, name='markirajPozitivno'),
+    path('markirajNegativno/<int:idrreg>/<int:idrez>/', Stolari.views.markirajNegativno, name='markirajNegativno'),
+    path('pregledRezervacijaIIznajmljivanja/', Stolari.views.pregledRezervacijaIIznajmljivanja,
+         name='pregledRezervacijaIIznajmljivanja'),
+
 ]
